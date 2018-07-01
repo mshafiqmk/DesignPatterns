@@ -1,80 +1,9 @@
 ﻿using System;
 using Adapter;
 using AggergateAndIterator;
-using System.Collections.Generic;
-namespace AggergateAndIterator
-{
-    public class Customer
-    {
-        public Customer()
-        {
-            _addresses = new List<Address>();
-        }
-        private List<Address> _addresses { get; set; }
-        //aggergate through root
-        public IEnumerable<Address> GetAddresses()
-        {
-            return _addresses;
-        }
 
-        public void Add(Address add)
-        {
-
-            foreach (var address in _addresses)
-            {
-                if (add.Type == address.Type)
-                {
-                    throw new Exception("Not allowed");
-                }
-            }
-            _addresses.Add(add);
-        }
-
-    }
-    public class Address
-    {
-        public string Type { get; set; }
-    }
-}
-namespace Adapter
-{
-    public class ThirtPartyPdfReport
-    {
-        public void Save()
-        {
-
-        }
-    }
-    public interface IExport
-    {
-        void Export();
-    }
-    public class WorReport : IExport
-    {
-        void IExport.Export()
-        {
-            throw new NotImplementedException("word export not implement yet");
-        }
-    }
-    public class ExcelReport : IExport
-    {
-        void IExport.Export()
-        {
-            throw new NotImplementedException("excel export not implemented yet");
-        }
-    }
-    public class AdapterPdf : IExport
-    {
-        void IExport.Export()
-        {
-            var rep = new ThirtPartyPdfReport();
-            rep.Save();
-        }
-    }
-}
 namespace SixDesignPatterns
 {
-    
     class Program
     {
         static void Main(string[] args)
