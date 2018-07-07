@@ -1,5 +1,6 @@
 # DesignPatterns
 
-This repo Contain Coding example about Design Patterns , language used in this case is c#
+This repo Contain Coding example about Design Patterns 
+Language : C#
 
 Author Muhammad Shafiq
